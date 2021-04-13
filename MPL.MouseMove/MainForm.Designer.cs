@@ -29,20 +29,32 @@ namespace MPL.MouseMove
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.StartStopButton = new System.Windows.Forms.Button();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.FileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.FileMenu_Start = new System.Windows.Forms.ToolStripMenuItem();
             this.FileMenu_Stop = new System.Windows.Forms.ToolStripMenuItem();
-            this.FileMenu_Sep = new System.Windows.Forms.ToolStripSeparator();
+            this.FileMenu_SepA = new System.Windows.Forms.ToolStripSeparator();
+            this.FileMenu_Hide = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenu_SepB = new System.Windows.Forms.ToolStripSeparator();
             this.FileMenu_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolsMenu_Options = new System.Windows.Forms.ToolStripMenuItem();
             this.Title = new System.Windows.Forms.Label();
             this.Copyright = new System.Windows.Forms.Label();
             this.Link = new System.Windows.Forms.LinkLabel();
+            this.NotificationAreaMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.NotificationAreaMenu_Start = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotificationAreaMenu_Stop = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotificationAreaMenu_SepA = new System.Windows.Forms.ToolStripSeparator();
+            this.NotificationAreaMenu_Show = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotificationAreaMenu_SepB = new System.Windows.Forms.ToolStripSeparator();
+            this.NotificationAreaMenu_Exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotificationIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.MainMenu.SuspendLayout();
+            this.NotificationAreaMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartStopButton
@@ -71,7 +83,9 @@ namespace MPL.MouseMove
             this.FileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMenu_Start,
             this.FileMenu_Stop,
-            this.FileMenu_Sep,
+            this.FileMenu_SepA,
+            this.FileMenu_Hide,
+            this.FileMenu_SepB,
             this.FileMenu_Exit});
             this.FileMenu.Name = "FileMenu";
             this.FileMenu.Size = new System.Drawing.Size(37, 20);
@@ -80,24 +94,35 @@ namespace MPL.MouseMove
             // FileMenu_Start
             // 
             this.FileMenu_Start.Name = "FileMenu_Start";
-            this.FileMenu_Start.Size = new System.Drawing.Size(98, 22);
+            this.FileMenu_Start.Size = new System.Drawing.Size(99, 22);
             this.FileMenu_Start.Text = "&Start";
             // 
             // FileMenu_Stop
             // 
             this.FileMenu_Stop.Name = "FileMenu_Stop";
-            this.FileMenu_Stop.Size = new System.Drawing.Size(98, 22);
+            this.FileMenu_Stop.Size = new System.Drawing.Size(99, 22);
             this.FileMenu_Stop.Text = "S&top";
             // 
-            // FileMenu_Sep
+            // FileMenu_SepA
             // 
-            this.FileMenu_Sep.Name = "FileMenu_Sep";
-            this.FileMenu_Sep.Size = new System.Drawing.Size(95, 6);
+            this.FileMenu_SepA.Name = "FileMenu_SepA";
+            this.FileMenu_SepA.Size = new System.Drawing.Size(96, 6);
+            // 
+            // FileMenu_Hide
+            // 
+            this.FileMenu_Hide.Name = "FileMenu_Hide";
+            this.FileMenu_Hide.Size = new System.Drawing.Size(99, 22);
+            this.FileMenu_Hide.Text = "&Hide";
+            // 
+            // FileMenu_SepB
+            // 
+            this.FileMenu_SepB.Name = "FileMenu_SepB";
+            this.FileMenu_SepB.Size = new System.Drawing.Size(96, 6);
             // 
             // FileMenu_Exit
             // 
             this.FileMenu_Exit.Name = "FileMenu_Exit";
-            this.FileMenu_Exit.Size = new System.Drawing.Size(98, 22);
+            this.FileMenu_Exit.Size = new System.Drawing.Size(99, 22);
             this.FileMenu_Exit.Text = "E&xit";
             // 
             // ToolsMenu
@@ -149,6 +174,58 @@ namespace MPL.MouseMove
             this.Link.Text = "https://github.com/memiamap/MPL.MouseMove";
             this.Link.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // NotificationAreaMenu
+            // 
+            this.NotificationAreaMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NotificationAreaMenu_Start,
+            this.NotificationAreaMenu_Stop,
+            this.NotificationAreaMenu_SepA,
+            this.NotificationAreaMenu_Show,
+            this.NotificationAreaMenu_SepB,
+            this.NotificationAreaMenu_Exit});
+            this.NotificationAreaMenu.Name = "NotificationAreaMenu";
+            this.NotificationAreaMenu.Size = new System.Drawing.Size(104, 104);
+            // 
+            // NotificationAreaMenu_Start
+            // 
+            this.NotificationAreaMenu_Start.Name = "NotificationAreaMenu_Start";
+            this.NotificationAreaMenu_Start.Size = new System.Drawing.Size(103, 22);
+            this.NotificationAreaMenu_Start.Text = "&Start";
+            // 
+            // NotificationAreaMenu_Stop
+            // 
+            this.NotificationAreaMenu_Stop.Name = "NotificationAreaMenu_Stop";
+            this.NotificationAreaMenu_Stop.Size = new System.Drawing.Size(103, 22);
+            this.NotificationAreaMenu_Stop.Text = "S&top";
+            // 
+            // NotificationAreaMenu_SepA
+            // 
+            this.NotificationAreaMenu_SepA.Name = "NotificationAreaMenu_SepA";
+            this.NotificationAreaMenu_SepA.Size = new System.Drawing.Size(100, 6);
+            // 
+            // NotificationAreaMenu_Show
+            // 
+            this.NotificationAreaMenu_Show.Name = "NotificationAreaMenu_Show";
+            this.NotificationAreaMenu_Show.Size = new System.Drawing.Size(103, 22);
+            this.NotificationAreaMenu_Show.Text = "Sho&w";
+            // 
+            // NotificationAreaMenu_SepB
+            // 
+            this.NotificationAreaMenu_SepB.Name = "NotificationAreaMenu_SepB";
+            this.NotificationAreaMenu_SepB.Size = new System.Drawing.Size(100, 6);
+            // 
+            // NotificationAreaMenu_Exit
+            // 
+            this.NotificationAreaMenu_Exit.Name = "NotificationAreaMenu_Exit";
+            this.NotificationAreaMenu_Exit.Size = new System.Drawing.Size(103, 22);
+            this.NotificationAreaMenu_Exit.Text = "E&xit";
+            // 
+            // NotificationIcon
+            // 
+            this.NotificationIcon.ContextMenuStrip = this.NotificationAreaMenu;
+            this.NotificationIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotificationIcon.Icon")));
+            this.NotificationIcon.Text = "MPL MouseMove";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +247,7 @@ namespace MPL.MouseMove
             this.Text = "MPL Mouse Move";
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
+            this.NotificationAreaMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,13 +260,23 @@ namespace MPL.MouseMove
         private System.Windows.Forms.ToolStripMenuItem FileMenu;
         private System.Windows.Forms.ToolStripMenuItem FileMenu_Start;
         private System.Windows.Forms.ToolStripMenuItem FileMenu_Stop;
-        private System.Windows.Forms.ToolStripSeparator FileMenu_Sep;
+        private System.Windows.Forms.ToolStripSeparator FileMenu_SepA;
         private System.Windows.Forms.ToolStripMenuItem FileMenu_Exit;
         private System.Windows.Forms.ToolStripMenuItem ToolsMenu;
         private System.Windows.Forms.ToolStripMenuItem ToolsMenu_Options;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label Copyright;
         private System.Windows.Forms.LinkLabel Link;
+        private System.Windows.Forms.ToolStripMenuItem FileMenu_Hide;
+        private System.Windows.Forms.ContextMenuStrip NotificationAreaMenu;
+        private System.Windows.Forms.ToolStripMenuItem NotificationAreaMenu_Show;
+        private System.Windows.Forms.ToolStripSeparator NotificationAreaMenu_SepB;
+        private System.Windows.Forms.ToolStripMenuItem NotificationAreaMenu_Exit;
+        private System.Windows.Forms.ToolStripSeparator FileMenu_SepB;
+        private System.Windows.Forms.ToolStripMenuItem NotificationAreaMenu_Start;
+        private System.Windows.Forms.ToolStripMenuItem NotificationAreaMenu_Stop;
+        private System.Windows.Forms.ToolStripSeparator NotificationAreaMenu_SepA;
+        private System.Windows.Forms.NotifyIcon NotificationIcon;
     }
 }
 

@@ -41,6 +41,8 @@ namespace MPL.MouseMove
 
                 FileMenu_Start.Enabled = !isRunning;
                 FileMenu_Stop.Enabled = isRunning;
+                NotificationAreaMenu_Start.Enabled = !isRunning;
+                NotificationAreaMenu_Stop.Enabled = isRunning;
                 ToolsMenu_Options.Enabled = !isRunning;
                 StartStopButton.Text = isRunning ? "Stop" : "Start";
             }
@@ -49,6 +51,13 @@ namespace MPL.MouseMove
         private void DoExit()
         {
             Close();
+        }
+
+        private void DoHide()
+        {
+            Hide();
+            NotificationIcon.Visible = true;
+            ShowInTaskbar = false;
         }
 
         private void DoStart()
@@ -60,6 +69,13 @@ namespace MPL.MouseMove
             }
 
             Display();
+        }
+
+        private void DoShow()
+        {
+            ShowInTaskbar = true;
+            NotificationIcon.Visible = false;
+            Show();
         }
 
         private void DoShowOptions()
@@ -106,9 +122,14 @@ namespace MPL.MouseMove
             FormClosing += Form_FormClosing;
             Load += Form_Load;
             FileMenu_Exit.Click += FileMenu_Exit_Click;
+            FileMenu_Hide.Click += FileMenu_Hide_Click;
             FileMenu_Start.Click += FileMenu_Start_Click;
             FileMenu_Stop.Click += FileMenu_Stop_Click;
             Link.LinkClicked += Link_LinkClicked;
+            NotificationAreaMenu_Exit.Click += NotificationAreaMenu_Exit_Click;
+            NotificationAreaMenu_Show.Click += NotificationAreaMenu_Show_Click;
+            NotificationAreaMenu_Start.Click += NotificationAreaMenu_Start_Click;
+            NotificationAreaMenu_Stop.Click += NotificationAreaMenu_Stop_Click;
             StartStopButton.Click += StartStopButton_Click;
             ToolsMenu_Options.Click += ToolsMenu_Options_Click;
         }
@@ -148,6 +169,10 @@ namespace MPL.MouseMove
         {
             DoExit();
         }
+        private void FileMenu_Hide_Click(object sender, EventArgs e)
+        {
+            DoHide();
+        }
 
         private void FileMenu_Start_Click(object sender, EventArgs e)
         {
@@ -155,6 +180,26 @@ namespace MPL.MouseMove
         }
 
         private void FileMenu_Stop_Click(object sender, EventArgs e)
+        {
+            DoStop();
+        }
+
+        private void NotificationAreaMenu_Exit_Click(object sender, EventArgs e)
+        {
+            DoExit();
+        }
+
+        private void NotificationAreaMenu_Show_Click(object sender, EventArgs e)
+        {
+            DoShow();
+        }
+
+        private void NotificationAreaMenu_Start_Click(object sender, EventArgs e)
+        {
+            DoStart();
+        }
+
+        private void NotificationAreaMenu_Stop_Click(object sender, EventArgs e)
         {
             DoStop();
         }
