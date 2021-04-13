@@ -146,7 +146,7 @@ namespace MPL.MouseMove
             this.Link.Size = new System.Drawing.Size(252, 26);
             this.Link.TabIndex = 2;
             this.Link.TabStop = true;
-            this.Link.Text = "https://github/memiamap/MPL.MouseMove";
+            this.Link.Text = "https://github.com/memiamap/MPL.MouseMove";
             this.Link.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
