@@ -130,6 +130,7 @@ namespace MPL.MouseMove
             NotificationAreaMenu_Show.Click += NotificationAreaMenu_Show_Click;
             NotificationAreaMenu_Start.Click += NotificationAreaMenu_Start_Click;
             NotificationAreaMenu_Stop.Click += NotificationAreaMenu_Stop_Click;
+            NotificationIcon.DoubleClick += NotificationIcon_DoubleClick;
             StartStopButton.Click += StartStopButton_Click;
             ToolsMenu_Options.Click += ToolsMenu_Options_Click;
         }
@@ -161,6 +162,13 @@ namespace MPL.MouseMove
         private void Link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             DoVisitLink();
+        }
+
+        #endregion
+        #region _NotifyIcon Events_
+        private void NotificationIcon_DoubleClick(object sender, EventArgs e)
+        {
+            DoShow();
         }
 
         #endregion
